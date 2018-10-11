@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crawler-html" />
+        <module name="crawler-jd" />
+        <module name="crawler-webmagic" />
+        <module name="webmagic-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crawler-html" target="1.5" />
+      <module name="crawler-jd" target="1.8" />
+      <module name="crawler-webmagic" target="1.8" />
+      <module name="crawlerweb-magic" target="1.8" />
+      <module name="webmagic-core" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
