@@ -9,6 +9,8 @@
         <module name="crawler-html" />
         <module name="crawler-jd" />
         <module name="crawler-webmagic" />
+        <module name="crud-ssm" />
+        <module name="simhasher" />
         <module name="webmagic-core" />
       </profile>
     </annotationProcessing>
@@ -17,6 +19,8 @@
       <module name="crawler-jd" target="1.8" />
       <module name="crawler-webmagic" target="1.8" />
       <module name="crawlerweb-magic" target="1.8" />
+      <module name="crud-ssm" target="1.8" />
+      <module name="simhasher" target="1.6" />
       <module name="webmagic-core" target="1.6" />
     </bytecodeTargetLevel>
   </component>
