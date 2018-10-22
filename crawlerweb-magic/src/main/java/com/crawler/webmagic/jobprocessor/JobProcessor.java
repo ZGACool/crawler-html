@@ -1,5 +1,4 @@
 package com.crawler.webmagic.jobprocessor;
-
 import com.crawler.webmagic.pipeline.SpringDataPipeline;
 import com.crawler.webmagic.pojo.JobInfo;
 import com.crawler.webmagic.utils.MathSalary;
@@ -15,7 +14,6 @@ import us.codecraft.webmagic.scheduler.BloomFilterDuplicateRemover;
 import us.codecraft.webmagic.scheduler.QueueScheduler;
 import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
-
 import java.util.List;
 /**
  * @author misterWei
@@ -60,14 +58,23 @@ public class JobProcessor implements PageProcessor {
 
         //公司名称
         jobInfo.setCompanyName(html.$("div.tHeader p.cname a", "text").toString());
-        //公司地址
-        jobInfo.setCompanyAddr(html.$("div.tBorderTop_box:nth-child(3) p.fp", "text").toString());
+        //公司地址 由于公司地址有些公司是不按照要求进行录取的,所以采用前缀统一的地址名称
+        String text = html.$("div.tHeader > div.in > div.cn > p.msg*", "text").toString();
+        //它们的空格都是有规律的按照空格去划分数据
+        String[] split = text.split("    ");
+        if (split[0] !=null){
+            jobInfo.setCompanyAddr(split[0]);
+            jobInfo.setJobAddr(split[0]);
+        }else {
+            jobInfo.setCompanyAddr("未能获取到详细的信息");
+        }
+        //
         //公司信息
         jobInfo.setCompanyInfo(html.$("div.tmsg", "text").toString());
         //职位名称
         jobInfo.setJobName(html.$("div.tHeader > div.in > div.cn > h1", "text").toString());
         //工作地点
-        jobInfo.setJobAddr(html.$("div.tHeader > div.in > div.cn > span.lname", "text").toString());
+
         //职位信息
         jobInfo.setJobInfo(Jsoup.parse(html.$("div.tBorderTop_box:nth-child(2)").toString()).text());
         //工资范围
@@ -77,13 +84,22 @@ public class JobProcessor implements PageProcessor {
         //职位详情url
         jobInfo.setUrl(page.getUrl().toString());
         //职位发布时间
-        String time = html.$("div.jtag > div.t1 > span.sp4", "text").regex(".*发布").toString();
+        String time = html.$("div.tHeader > div.in > div.cn > p.msg*", "text").toString();
         if (time!=null){
-            jobInfo.setTime(time.substring(0, time.length() - 2)); 
+            String substring = time.substring(time.length() - 8, time.length());
+            if (substring.contains("发布")){
+                jobInfo.setTime(substring);
+            }else {
+                jobInfo.setTime("暂无发布信息!");
+            }
+
+        }else{
+            jobInfo.setTime("暂无发布信息!");
         }
 
+
 //保存数据
-        page.putField("jobInfo", jobInfo);
+       page.putField("jobInfo", jobInfo);
     }
 
     private  Site site = Site.me().setSleepTime(1000).setCharset("gbk").setTimeOut(10000).setRetrySleepTime(10*1000).setRetryTimes(3);

@@ -6,7 +6,13 @@
 
     <groupId>com.crawler</groupId>
     <artifactId>crawler-html</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>crawler-search</module>
+    </modules>
+
+
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="crawler-html" />
         <module name="crawler-jd" />
+        <module name="crawler-search" />
         <module name="crawler-webmagic" />
         <module name="crud-ssm" />
         <module name="simhasher" />
@@ -17,6 +17,8 @@
     <bytecodeTargetLevel>
       <module name="crawler-html" target="1.5" />
       <module name="crawler-jd" target="1.8" />
+      <module name="crawler-search" target="1.8" />
+      <module name="crawler-search-job" target="1.8" />
       <module name="crawler-webmagic" target="1.8" />
       <module name="crawlerweb-magic" target="1.8" />
       <module name="crud-ssm" target="1.8" />

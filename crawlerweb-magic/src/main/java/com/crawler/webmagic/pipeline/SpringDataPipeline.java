@@ -1,5 +1,4 @@
 package com.crawler.webmagic.pipeline;
-
 import com.crawler.webmagic.pojo.JobInfo;
 import com.crawler.webmagic.service.JobInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,9 @@ public class SpringDataPipeline implements Pipeline {
 
     @Override
     public void process(ResultItems resultItems, Task task) {
-        JobInfo jobInfo  = resultItems.get("jobInfo");
-        if (jobInfo!=null){
- this.jobInfoService.saveJobInfo(jobInfo);
+        JobInfo jobInfo = resultItems.get("jobInfo");
+        if (jobInfo != null) {
+            this.jobInfoService.saveJobInfo(jobInfo);
         }
     }
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/crawler-html.iml" filepath="$PROJECT_DIR$/crawler-html.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler-jd/crawler-jd.iml" filepath="$PROJECT_DIR$/crawler-jd/crawler-jd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crawler-search/crawler-search.iml" filepath="$PROJECT_DIR$/crawler-search/crawler-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawlerweb-magic/crawler-webmagic.iml" filepath="$PROJECT_DIR$/crawlerweb-magic/crawler-webmagic.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-ssm/crud-ssm.iml" filepath="$PROJECT_DIR$/crud-ssm/crud-ssm.iml" />
       <module fileurl="file://G:/扩展/爬虫/爬虫25期/课前资料/simhash/simhasher.iml" filepath="G:/扩展/爬虫/爬虫25期/课前资料/simhash/simhasher.iml" />
