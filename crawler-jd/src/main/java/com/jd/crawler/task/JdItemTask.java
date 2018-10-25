@@ -25,9 +25,9 @@ public class JdItemTask {
     @Autowired
     private HttpUtils httpUtils;
 
-    @Autowired
+    @Autowired  //这个就是一个保存数据库的service操作
     private CrawlerJdService crawlerJdService;
-
+           //用来转化金额操作,
     public static final ObjectMapper objectMapper = new ObjectMapper();
 
 
